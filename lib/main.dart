@@ -1,6 +1,8 @@
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/flavor/flavor.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/core/networking/dio.dart';
 
 void main() {
   final flavorConfig = FlavorConfig(
@@ -21,6 +23,9 @@ class MyApp extends StatelessWidget {
       providers: [
         RepositoryProvider<FlavorConfig>(
           create: (_) => config,
+        ),
+        RepositoryProvider<Dio>(
+          create: (_) => getDioClient(config: config),
         ),
       ],
       child: MaterialApp(
