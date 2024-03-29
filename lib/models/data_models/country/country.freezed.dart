@@ -104,8 +104,8 @@ class __$$CountryImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CountryImpl implements _Country {
-  _$CountryImpl({required this.id, required this.value});
+class _$CountryImpl extends _Country {
+  _$CountryImpl({required this.id, required this.value}) : super._();
 
   factory _$CountryImpl.fromJson(Map<String, dynamic> json) =>
       _$$CountryImplFromJson(json);
@@ -147,9 +147,10 @@ class _$CountryImpl implements _Country {
   }
 }
 
-abstract class _Country implements Country {
+abstract class _Country extends Country {
   factory _Country({required final int id, required final String value}) =
       _$CountryImpl;
+  _Country._() : super._();
 
   factory _Country.fromJson(Map<String, dynamic> json) = _$CountryImpl.fromJson;
 

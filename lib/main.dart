@@ -10,17 +10,19 @@ import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/my_home
 
 void main() {
   final flavorConfig = FlavorConfig(
-    flavor: Flavor.fromString(const String.fromEnvironment('FLAVOR')),
+    flavor: Flavor.fromString(const String.fromEnvironment('flavor')),
     baseApiUrl: const String.fromEnvironment('base_api_url'),
     apiKey: const String.fromEnvironment('api_key'),
     userAgent: const String.fromEnvironment('api_user_agent'),
   );
-  runApp(MyApp(config: flavorConfig));
+  final dio = getDioClient(config: flavorConfig);
+  runApp(MyApp(config: flavorConfig, dio: dio));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({required this.config, super.key});
+  const MyApp({required this.config, required this.dio, super.key});
   final FlavorConfig config;
+  final Dio dio;
   @override
   Widget build(BuildContext context) {
     return MultiRepositoryProvider(
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider<PlaceRepository>(
           create: (_) => config.flavor == Flavor.devMock
               ? PlaceRepositoryMock()
-              : PlaceRepositoryImpl(dio: Dio()),
+              : PlaceRepositoryImpl(dio: dio),
         ),
       ],
       child: MaterialApp(
