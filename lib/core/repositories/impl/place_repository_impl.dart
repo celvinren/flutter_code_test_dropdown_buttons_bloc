@@ -26,7 +26,7 @@ class PlaceRepositoryImpl implements PlaceRepository {
   }
 
   @override
-  Future<List<State>> getStates(String countryId) async {
+  Future<List<State>> getStates(int countryId) async {
     try {
       final remoteData = await _remote.getStates(countryId);
       return remoteData;
