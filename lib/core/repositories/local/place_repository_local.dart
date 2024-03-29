@@ -12,7 +12,7 @@ class PlaceRepositoryLocal extends PlaceRepository {
   }
 
   @override
-  Future<List<State>> getStates() {
+  Future<List<State>> getStates(String countryId) {
     // TODO: implement getStates
     throw UnimplementedError();
   }
