@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/flavor/flavor.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/networking/dio.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/impl/place_repository_impl.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/mock/place_repository_mock.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/place_repository.dart';
 
 void main() {
   final flavorConfig = FlavorConfig(
@@ -26,6 +29,11 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider<Dio>(
           create: (_) => getDioClient(config: config),
+        ),
+        RepositoryProvider<PlaceRepository>(
+          create: (_) => config.flavor == Flavor.devMock
+              ? PlaceRepositoryMock()
+              : PlaceRepositoryImpl(dio: Dio()),
         ),
       ],
       child: MaterialApp(
