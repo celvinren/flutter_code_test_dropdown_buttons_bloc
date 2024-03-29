@@ -6,6 +6,7 @@ import 'package:flutter_code_test_dropdown_buttons_bloc/core/networking/dio.dart
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/impl/place_repository_impl.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/mock/place_repository_mock.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/place_repository.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/features/error_reporter/error_reporter.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/my_home_page.dart';
 
 void main() {
@@ -45,7 +46,9 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const MyHomePage(title: 'Flutter Demo Home Page'),
+        home: const ErrorReporterWrapper(
+          child: MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
       ),
     );
   }
