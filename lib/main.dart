@@ -6,6 +6,7 @@ import 'package:flutter_code_test_dropdown_buttons_bloc/core/networking/dio.dart
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/impl/place_repository_impl.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/mock/place_repository_mock.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/place_repository.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/my_home_page.dart';
 
 void main() {
   final flavorConfig = FlavorConfig(
@@ -43,33 +44,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         home: const MyHomePage(title: 'Flutter Demo Home Page'),
-      ),
-    );
-  }
-}
-
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({required this.title, super.key});
-
-  final String title;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-      ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Hello, World!'),
-              ),
-            );
-          },
-          child: const Text('Show SnackBar'),
-        ),
       ),
     );
   }
