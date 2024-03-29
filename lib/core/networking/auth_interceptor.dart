@@ -14,6 +14,7 @@ class AuthInterceptor extends Interceptor {
     RequestInterceptorHandler handler,
   ) async {
     options.headers['x-api-key'] = flavorConfig.apiKey;
+    options.headers['User-Agent'] = flavorConfig.userAgent;
 
     /// This is where you can add the token to the headers.
     ///
