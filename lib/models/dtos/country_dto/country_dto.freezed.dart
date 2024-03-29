@@ -107,8 +107,8 @@ class __$$CountryDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CountryDtoImpl implements _CountryDto {
-  const _$CountryDtoImpl({required this.id, required this.value});
+class _$CountryDtoImpl extends _CountryDto {
+  const _$CountryDtoImpl({required this.id, required this.value}) : super._();
 
   factory _$CountryDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$CountryDtoImplFromJson(json);
@@ -150,9 +150,10 @@ class _$CountryDtoImpl implements _CountryDto {
   }
 }
 
-abstract class _CountryDto implements CountryDto {
+abstract class _CountryDto extends CountryDto {
   const factory _CountryDto(
       {required final int id, required final String value}) = _$CountryDtoImpl;
+  const _CountryDto._() : super._();
 
   factory _CountryDto.fromJson(Map<String, dynamic> json) =
       _$CountryDtoImpl.fromJson;

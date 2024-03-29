@@ -106,8 +106,8 @@ class __$$StateDtoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$StateDtoImpl implements _StateDto {
-  _$StateDtoImpl({required this.id, required this.value});
+class _$StateDtoImpl extends _StateDto {
+  _$StateDtoImpl({required this.id, required this.value}) : super._();
 
   factory _$StateDtoImpl.fromJson(Map<String, dynamic> json) =>
       _$$StateDtoImplFromJson(json);
@@ -149,9 +149,10 @@ class _$StateDtoImpl implements _StateDto {
   }
 }
 
-abstract class _StateDto implements StateDto {
+abstract class _StateDto extends StateDto {
   factory _StateDto({required final int id, required final String value}) =
       _$StateDtoImpl;
+  _StateDto._() : super._();
 
   factory _StateDto.fromJson(Map<String, dynamic> json) =
       _$StateDtoImpl.fromJson;
