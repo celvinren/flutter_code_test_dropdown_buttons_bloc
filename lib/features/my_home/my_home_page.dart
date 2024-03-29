@@ -4,6 +4,7 @@ import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/place_
 import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu_cubit.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/widgets/state_dropdown_menu/states_dropdown_menu.dart';
+import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/widgets/state_dropdown_menu/states_dropdown_menu_cubit.dart';
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({required this.title, super.key});
@@ -12,10 +13,21 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => CountriesDropdownMenuCubit(
-        repository: context.read<PlaceRepository>(),
-      ),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => CountriesDropdownMenuCubit(
+            repository: context.read<PlaceRepository>(),
+          ),
+        ),
+        BlocProvider(
+          create: (context) => StatesDropdownMenuCubit(
+            repository: context.read<PlaceRepository>(),
+            selectedCountryStateStream:
+                context.read<CountriesDropdownMenuCubit>().stream,
+          ),
+        ),
+      ],
       child: Scaffold(
         appBar: AppBar(
           title: Text(title),
