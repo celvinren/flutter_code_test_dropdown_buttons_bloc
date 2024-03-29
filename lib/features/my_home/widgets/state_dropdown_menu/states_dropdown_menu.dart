@@ -43,7 +43,7 @@ class StatesDropdownMenuButton extends StatelessWidget {
           ),
           onSelected: context.read<StatesDropdownMenuCubit>().setSelectedState,
           isDropdownEnable: isDropdownEnable,
-          leadingIcon: leadingIcon,
+          trailingIcon: leadingIcon,
         );
       },
     );

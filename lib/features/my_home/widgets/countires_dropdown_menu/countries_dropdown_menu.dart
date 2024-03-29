@@ -45,7 +45,7 @@ class CountriesDropdownMenuButton extends HookWidget {
           onSelected:
               context.read<CountriesDropdownMenuCubit>().setSelectedCountry,
           isDropdownEnable: isDropdownEnable,
-          leadingIcon: leadingIcon,
+          trailingIcon: leadingIcon,
         );
       },
     );

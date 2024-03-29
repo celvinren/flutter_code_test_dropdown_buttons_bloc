@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/core/repositories/place_repository.dart';
 import 'package:flutter_code_test_dropdown_buttons_bloc/features/my_home/widgets/countires_dropdown_menu/countries_dropdown_menu_cubit.dart'
@@ -24,9 +26,10 @@ class StatesDropdownMenuCubit extends Cubit<StatesDropdownMenuState> {
   final PlaceRepository _placeRepository;
   final Stream<countries_cubit.CountriesDropdownMenuState>
       selectedCountryStateStream;
+  StreamSubscription<countries_cubit.CountriesDropdownMenuState>? _subscription;
 
   void fetchStates() {
-    selectedCountryStateStream
+    _subscription = selectedCountryStateStream
         .asBroadcastStream()
         .listen((countriesState) async {
       try {
@@ -64,6 +67,12 @@ class StatesDropdownMenuCubit extends Cubit<StatesDropdownMenuState> {
     if (state is Success) {
       emit(state.copyWith(selectedState: value));
     }
+  }
+
+  @override
+  Future<void> close() {
+    _subscription?.cancel();
+    return super.close();
   }
 }
 

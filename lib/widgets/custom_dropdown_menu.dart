@@ -7,7 +7,7 @@ class CustomDropdownMenu<T> extends StatelessWidget {
     required this.itemBuilder,
     required this.onSelected,
     this.isDropdownEnable = true,
-    this.leadingIcon,
+    this.trailingIcon,
     super.key,
   });
 
@@ -15,7 +15,7 @@ class CustomDropdownMenu<T> extends StatelessWidget {
   final List<T> items;
   final DropdownMenuEntry<T> Function(T item) itemBuilder;
   final bool isDropdownEnable;
-  final Widget? leadingIcon;
+  final Widget? trailingIcon;
   final void Function(T? value) onSelected;
 
   @override
@@ -28,7 +28,7 @@ class CustomDropdownMenu<T> extends StatelessWidget {
       textStyle: TextStyle(
         color: isDropdownEnable ? Colors.black : Colors.grey,
       ),
-      leadingIcon: leadingIcon,
+      trailingIcon: trailingIcon,
       onSelected: onSelected,
     );
   }

@@ -5,21 +5,6 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "dev_mock",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "program": "lib/main.dart",
-            "args": [
-                "--flavor",
-                "devMock",
-                "--dart-define=flavor=devMock",
-                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
-                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
-                "--dart-define=api_user_agent=com.stagingcupid.api/10.16.6 (Release) Android/31",
-            ]
-        },
-        {
             "name": "dev",
             "request": "launch",
             "type": "dart",
@@ -35,33 +20,17 @@
             ]
         },
         {
-            "name": "dev_profile",
+            "name": "dev_mock",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
+            "flutterMode": "debug",
             "program": "lib/main.dart",
             "args": [
                 "--flavor",
-                "dev",
-                "--dart-define=flavor=dev",
+                "devMock",
+                "--dart-define=flavor=devMock",
                 "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
                 "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
-                "--dart-define=api_user_agent=com.stagingcupid.api/10.16.6 (Release) Android/31",
-            ]
-        },
-        {
-            "name": "dev_release",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
-            "program": "lib/main.dart",
-            "args": [
-                "--flavor",
-                "dev",
-                "--dart-define=flavor=dev",
-                "--dart-define=base_api_url=https://api.stagingcupid.com/api/v1",
-                "--dart-define=api_key=sA,{tzUD=]dHvYNBJ4xVZ3c=&zS%.UqVc{But?kc",
-                "--dart-define=api_user_agent=com.stagingcupid.api/10.16.6 (Release) Android/31",
             ]
         }
     ]
