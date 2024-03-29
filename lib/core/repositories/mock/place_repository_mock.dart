@@ -3,6 +3,8 @@ import 'package:flutter_code_test_dropdown_buttons_bloc/models/data_models/count
 import 'package:flutter_code_test_dropdown_buttons_bloc/models/data_models/state/state.dart';
 
 class PlaceRepositoryMock implements PlaceRepository {
+  PlaceRepositoryMock();
+
   @override
   Future<List<Country>> getCountries() async {
     await Future<void>.delayed(const Duration(microseconds: 500));
