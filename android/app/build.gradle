@@ -67,6 +67,11 @@ android {
             applicationIdSuffix ".dev"
             resValue "string", "app_name", "App DEV"
         }
+        devmock {
+            dimension "environment"
+            applicationIdSuffix ".mock"
+            resValue "string", "app_name", "App Mock"
+        }
         tst {
             dimension "environment"
             applicationIdSuffix ".test"

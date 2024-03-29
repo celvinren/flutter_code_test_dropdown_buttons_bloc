@@ -9,7 +9,10 @@ class Country with _$Country {
     required int id,
     required String value,
   }) = _Country;
+  Country._();
 
   factory Country.fromJson(Map<String, dynamic> json) =>
       _$CountryFromJson(json);
+
+  bool get isValid => id > 0;
 }

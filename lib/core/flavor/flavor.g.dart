@@ -24,6 +24,7 @@ Map<String, dynamic> _$$FlavorConfigImplToJson(_$FlavorConfigImpl instance) =>
 
 const _$FlavorEnumMap = {
   Flavor.dev: 'dev',
+  Flavor.devMock: 'devMock',
   Flavor.tst: 'tst',
   Flavor.qa: 'qa',
   Flavor.prod: 'prod',

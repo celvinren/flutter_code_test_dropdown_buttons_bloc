@@ -5,6 +5,7 @@ part 'flavor.g.dart';
 
 enum Flavor {
   dev,
+  devMock,
   tst,
   qa,
   prod;
@@ -13,6 +14,8 @@ enum Flavor {
     switch (value) {
       case 'dev':
         return Flavor.dev;
+      case 'devMock':
+        return Flavor.devMock;
       case 'tst':
         return Flavor.tst;
       case 'qa':

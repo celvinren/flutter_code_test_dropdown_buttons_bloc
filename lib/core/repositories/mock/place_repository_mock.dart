@@ -7,13 +7,13 @@ class PlaceRepositoryMock implements PlaceRepository {
 
   @override
   Future<List<Country>> getCountries() async {
-    await Future<void>.delayed(const Duration(microseconds: 500));
+    await Future<void>.delayed(const Duration(seconds: 2));
     return _mockCountries;
   }
 
   @override
   Future<List<State>> getStates(int countryId) async {
-    await Future<void>.delayed(const Duration(microseconds: 500));
+    await Future<void>.delayed(const Duration(seconds: 2));
     final states = _mockStates
         .where((element) => element['countryId'] == countryId)
         .map(State.fromJson)
